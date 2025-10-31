@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuestionario Ley 70 de 1993</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1E5631 0%, #2E5077 100%);
+            min-height: 100%;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .floating-emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100%) rotate(0deg); }
+            100% { transform: translateY(-100%) rotate(360deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1E5631;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #2E5077;
+            margin-bottom: 2rem;
+        }
+
+        .progress-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .progress-tree {
+            font-size: 2rem;
+            transition: all 0.5s ease;
+            filter: grayscale(100%);
+        }
+
+        .progress-tree.active {
+            filter: grayscale(0%);
+            transform: scale(1.2);
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .question-emoji {
+            font-size: 2rem;
+        }
+
+        .question-number {
+            background: #F4C542;
+            color: #1E5631;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            color: #1E5631;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 3px solid transparent;
+            border-radius: 15px;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: #2E5077;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .option.selected {
+            border-color: #F4C542;
+            background: #FFF8E1;
+        }
+
+        .option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #F4C542 0%, #8B4513 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .next-btn.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .completion-screen {
+            display: none;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .completion-screen.show {
+            display: block;
+            animation: celebrationPulse 2s ease-in-out;
+        }
+
+        @keyframes celebrationPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .celebration-emojis {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .celebration-emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: celebrate 3s ease-out forwards;
+        }
+
+        @keyframes celebrate {
+            0% {
+                transform: translateY(100%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-200%) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #F4C542 0%, #8B4513 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .score {
+            font-size: 3rem;
+            color: #1E5631;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .restart-btn {
+            background: linear-gradient(135deg, #2E5077 0%, #1E5631 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .option {
+                font-size: 1rem;
+                padding: 0.8rem 1rem;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="floating-bg" id="floatingBg"></div>
+  <div class="container">
+   <div class="header">
+    <h1 class="title" id="quizTitle">Ley 70 de 1993 y Derechos de las Comunidades Negras</h1>
+    <p class="subtitle">Cuestionario interactivo para estudiantes de derecho y ciencias sociales</p>
+    <div class="progress-container">
+        <span class="progress-tree" id="tree1">🌱</span>
+        <span class="progress-tree" id="tree2">🌿</span>
+        <span class="progress-tree" id="tree3">🍀</span>
+        <span class="progress-tree" id="tree4">🎄</span>
+        <span class="progress-tree" id="tree5">🌳</span>
+        <span class="progress-tree" id="tree6">🌲</span>
+        <span class="progress-tree" id="tree7">🌴</span>
+        <span class="progress-tree" id="tree8">🍃</span>
+        <span class="progress-tree" id="tree9">🌵</span>
+        <span class="progress-tree" id="tree10">🎋</span>
+    </div>
+   </div>
+   <div class="quiz-card" id="quizCard">
+    <div class="question-header"><span class="question-emoji" id="questionEmoji">📜</span> <span class="question-number" id="questionNumber">Pregunta 1 de 10</span>
+    </div>
+    <div class="question-text" id="questionText"></div>
+    <div class="options" id="optionsContainer"></div><button class="next-btn" id="nextBtn" onclick="nextQuestion()">Siguiente Pregunta</button>
+   </div>
+   <div class="completion-screen" id="completionScreen">
+    <div class="celebration-emojis" id="celebrationEmojis"></div>
+    <h2 id="completionMessage">¡Felicitaciones! Has completado el cuestionario</h2>
+    <div class="score" id="finalScore"></div>
+    <div class="badge">
+     <div id="badgeText">
+      ⚖️ Experto en Derechos Étnicos 📜🌐
+     </div>
+    </div><button class="restart-btn" onclick="restartQuiz()">Reiniciar Cuestionario</button>
+   </div>
+  </div>
+  <script>
+        const defaultConfig = {
+            quiz_title: "Ley 70 de 1993 y Derechos de las Comunidades Negras",
+            completion_message: "¡Felicitaciones! Has completado el cuestionario",
+            badge_text: "Experto en Derechos Étnicos"
+        };
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswer = null;
+
+        const questions = [
+            {
+                emoji: "📜",
+                text: "¿Cuál es el objeto principal de la Ley 70 de 1993?",
+                options: [
+                    "Expropiar tierras privadas para redistribuirlas entre las comunidades indígenas.",
+                    "Reconocer el derecho a la propiedad colectiva de tierras baldías para las comunidades negras y proteger su identidad cultural.",
+                    "Crear nuevos municipios en la región del Pacífico colombiano.",
+                    "Establecer un sistema educativo exclusivo para las comunidades negras."
+                ],
+                correct: 1
+            },
+            {
+                emoji: "👨‍👩‍👧‍👦",
+                text: "Según la ley, ¿cómo se define a una \"Comunidad Negra\"?",
+                options: [
+                    "Todas las personas de piel oscura que vivan en Colombia.",
+                    "Un conjunto de familias de ascendencia afrocolombiana con una cultura, historia y tradiciones propias que las distinguen.",
+                    "Cualquier grupo que viva en la Cuenca del Pacífico.",
+                    "Grupos organizados dedicados a la explotación minera tradicional."
+                ],
+                correct: 1
+            },
+            {
+                emoji: "⚖️",
+                text: "Los Consejos Comunitarios son importantes porque:",
+                options: [
+                    "Reemplazan a las alcaldías municipales en sus funciones.",
+                    "Son la forma de administración interna para recibir y gestionar la propiedad colectiva de las tierras.",
+                    "Tienen la potestad de vender las tierras colectivas al mejor postor.",
+                    "Su principal función es la exploración de hidrocarburos."
+                ],
+                correct: 1
+            },
+            {
+                emoji: "🏞️",
+                text: "De acuerdo con el Artículo 6, una limitación a las adjudicaciones colectivas es que NO comprenden:",
+                options: [
+                    "Las tierras baldías de la nación.",
+                    "Las prácticas tradicionales de producción.",
+                    "Los recursos naturales no renovables o las áreas de Parques Nacionales.",
+                    "Los ríos y playas de uso público."
+                ],
+                correct: 2
+            },
+            {
+                emoji: "🌐",
+                text: "Para solicitar la adjudicación de tierras, la comunidad debe presentar información como:",
+                options: [
+                    "Un plan de negocios para la exportación de recursos.",
+                    "La descripción física del territorio y sus antecedentes etnohistóricos.",
+                    "Un listado de todos los bienes personales de los habitantes.",
+                    "Un compromiso de renuncia a su identidad cultural."
+                ],
+                correct: 1
+            },
+            {
+                emoji: "🌿",
+                text: "El \"uso por ministerio de la ley\" se refiere a:",
+                options: [
+                    "La explotación industrial de minerales por parte de multinacionales.",
+                    "La venta comercial de recursos madereros a gran escala.",
+                    "Las prácticas tradicionales para fines alimenticios o domésticos, garantizando la persistencia del recurso.",
+                    "La construcción de grandes infraestructuras por parte del gobierno."
+                ],
+                correct: 2
+            },
+            {
+                emoji: "⛏️",
+                text: "En cuanto a los recursos mineros, las comunidades negras tienen:",
+                options: [
+                    "Derecho de propiedad absoluta sobre todos los minerales del subsuelo.",
+                    "Prohibición total de realizar cualquier actividad minera.",
+                    "Derecho de prelación para la exploración y explotación de recursos que tradicionalmente han aprovechado (excepto carbón, hidrocarburos, etc.).",
+                    "La obligación de asociarse con empresas internacionales para cualquier proyecto."
+                ],
+                correct: 2
+            },
+            {
+                emoji: "🎓",
+                text: "En el ámbito educativo, la Ley 70 establece que:",
+                options: [
+                    "Las comunidades negras deben adaptarse al currículo nacional estándar sin cambios.",
+                    "Se debe garantizar una educación acorde con sus necesidades etnoculturales e incluir la Cátedra de Estudios Afrocolombianos.",
+                    "La educación para estas comunidades será responsabilidad exclusiva de los Consejos Comunitarios.",
+                    "Se crean universidades exclusivas en cada territorio colectivo."
+                ],
+                correct: 1
+            },
+            {
+                emoji: "📊",
+                text: "La participación de las comunidades negras en la planeación del desarrollo se garantiza mediante:",
+                options: [
+                    "La designación directa de sus representantes por parte del Presidente de la República.",
+                    "Su representación en los Consejos de Planeación (nacional y territorial) a través de representantes que ellas mismas postulan.",
+                    "La realización de consultas populares para todos los proyectos del país.",
+                    "La autonomía absoluta para rechazar cualquier plan de desarrollo nacional."
+                ],
+                correct: 1
+            },
+            {
+                emoji: "📋",
+                text: "La reglamentación de la Ley 70 debe tener en cuenta:",
+                options: [
+                    "Únicamente los intereses del gobierno nacional.",
+                    "Las recomendaciones de las empresas extractivas que operan en la región.",
+                    "Las recomendaciones de las comunidades negras beneficiarias, a través de una comisión consultiva.",
+                    "Los lineamientos de organizaciones internacionales."
+                ],
+                correct: 2
+            }
+        ];
+
+        function createFloatingBackground() {
+            const bg = document.getElementById('floatingBg');
+            const emojis = ['🗺️', '📖', '🤝'];
+            
+            for (let i = 0; i < 15; i++) {
+                const emoji = document.createElement('div');
+                emoji.className = 'floating-emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + '%';
+                emoji.style.animationDelay = Math.random() * 15 + 's';
+                emoji.style.animationDuration = (10 + Math.random() * 10) + 's';
+                bg.appendChild(emoji);
+            }
+        }
+
+        function displayQuestion() {
+            const question = questions[currentQuestion];
+            
+            document.getElementById('questionEmoji').textContent = question.emoji;
+            document.getElementById('questionNumber').textContent = `Pregunta ${currentQuestion + 1} de ${questions.length}`;
+            document.getElementById('questionText').textContent = question.text;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.textContent = `${String.fromCharCode(97 + index)}) ${option}`;
+                optionDiv.onclick = () => selectOption(index, optionDiv);
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            document.getElementById('nextBtn').classList.remove('show');
+            selectedAnswer = null;
+            
+            updateProgress();
+        }
+
+        function selectOption(index, element) {
+            // Remove previous selections
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            selectedAnswer = index;
+            element.classList.add('selected');
+            
+            // Show correct/incorrect after selection
+            setTimeout(() => {
+                const question = questions[currentQuestion];
+                document.querySelectorAll('.option').forEach((opt, i) => {
+                    if (i === question.correct) {
+                        opt.classList.add('correct');
+                    } else if (i === selectedAnswer && i !== question.correct) {
+                        opt.classList.add('incorrect');
+                    }
+                });
+                
+                if (selectedAnswer === question.correct) {
+                    score++;
+                }
+                
+                document.getElementById('nextBtn').classList.add('show');
+            }, 500);
+        }
+
+        function updateProgress() {
+            for (let i = 1; i <= 10; i++) {
+                const tree = document.getElementById(`tree${i}`);
+                if (i <= currentQuestion + 1) {
+                    tree.classList.add('active');
+                } else {
+                    tree.classList.remove('active');
+                }
+            }
+        }
+
+        function nextQuestion() {
+            if (selectedAnswer === null) return;
+            
+            currentQuestion++;
+            
+            if (currentQuestion < questions.length) {
+                displayQuestion();
+            } else {
+                showCompletion();
+            }
+        }
+
+        function showCompletion() {
+            document.getElementById('quizCard').style.display = 'none';
+            
+            const completionScreen = document.getElementById('completionScreen');
+            const finalScore = document.getElementById('finalScore');
+            
+            finalScore.textContent = `${score}/${questions.length}`;
+            
+            completionScreen.classList.add('show');
+            
+            // Create celebration animation
+            createCelebrationEmojis();
+        }
+
+        function createCelebrationEmojis() {
+            const container = document.getElementById('celebrationEmojis');
+            const celebrationEmojis = ['🍃', '🎉', '⚖️', '📜', '🌐', '🎊'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.className = 'celebration-emoji';
+                    emoji.textContent = celebrationEmojis[Math.floor(Math.random() * celebrationEmojis.length)];
+                    emoji.style.left = Math.random() * 100 + '%';
+                    emoji.style.animationDelay = Math.random() * 2 + 's';
+                    container.appendChild(emoji);
+                    
+                    setTimeout(() => {
+                        emoji.remove();
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswer = null;
+            
+            document.getElementById('completionScreen').classList.remove('show');
+            document.getElementById('quizCard').style.display = 'block';
+            
+            // Reset progress
+            document.querySelectorAll('.progress-tree').forEach(tree => {
+                tree.classList.remove('active');
+            });
+            
+            displayQuestion();
+        }
+
+        // Element SDK implementation
+        async function onConfigChange(config) {
+            const title = config.quiz_title || defaultConfig.quiz_title;
+            const completionMsg = config.completion_message || defaultConfig.completion_message;
+            const badgeText = config.badge_text || defaultConfig.badge_text;
+            
+            document.getElementById('quizTitle').textContent = title;
+            document.getElementById('completionMessage').textContent = completionMsg;
+            document.getElementById('badgeText').textContent = `⚖️ ${badgeText} 📜🌐`;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["quiz_title", config.quiz_title || defaultConfig.quiz_title],
+                ["completion_message", config.completion_message || defaultConfig.completion_message],
+                ["badge_text", config.badge_text || defaultConfig.badge_text]
+            ]);
+        }
+
+        // Initialize
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Start the quiz
+        createFloatingBackground();
+        displayQuestion();
+    </script>
+ </body>
+</html>
