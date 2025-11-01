@@ -94,6 +94,37 @@ nav {
     opacity: 0.9;
 }
 
+/* Estilos para el nombre principal con gradiente panafricano */
+.org-main-name {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, 
+        #000000 0%,    /* Negro - representando el pueblo */
+        #E31B23 25%,   /* Rojo - representando la sangre y la lucha */
+        #00853F 50%,   /* Verde - representando la tierra y la naturaleza */
+        #000000 75%,    /* Negro nuevamente */
+        #FCD116 100%   /* Amarillo - representando la riqueza y el futuro */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero-slogan {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Ajustar el hero para el nuevo contenido */
+.hero-content h1.org-main-name {
+    margin-bottom: 0.5rem;
+}
+
 .cta-button {
     background: white;
     color: #000;
