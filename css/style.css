@@ -1,27 +1,37 @@
-/* Reset y estilos base */
+/* Reset y estilos base optimizados */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #000;
+    --secondary-color: #fff;
+    --accent-color: #f0f0f0;
+    --text-color: #333;
+    --text-light: #555;
+    --shadow: 0 2px 10px rgba(0,0,0,0.3);
+    --transition: all 0.3s ease;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #fff;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
 }
 
-/* Header y Navegación */
+/* Header y Navegación - CON MENÚ HAMBURGUESA */
 header {
-    background-color: #000;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow);
 }
 
 nav {
@@ -31,6 +41,7 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    position: relative;
 }
 
 .logo {
@@ -47,33 +58,53 @@ nav {
 .org-name {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    color: var(--secondary-color);
+}
+
+/* Estilos del menú hamburguesa */
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    display: none;
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
+.menu-icon:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
+    transition: var(--transition);
 }
 
 .nav-menu a {
-    color: white;
+    color: var(--secondary-color);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
+    transition: var(--transition);
     padding: 0.5rem 1rem;
     border-radius: 4px;
 }
 
 .nav-menu a:hover {
-    color: #000;
-    background-color: white;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #000 0%, #333 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #333 100%);
+    color: var(--secondary-color);
     text-align: center;
     padding: 120px 2rem 80px;
     margin-top: 70px;
@@ -103,7 +134,7 @@ nav {
         #000000 0%,    /* Negro - representando el pueblo */
         #E31B23 25%,   /* Rojo - representando la sangre y la lucha */
         #00853F 50%,   /* Verde - representando la tierra y la naturaleza */
-        #000000 75%,    /* Negro nuevamente */
+        #000000 75%,   /* Negro nuevamente */
         #FCD116 100%   /* Amarillo - representando la riqueza y el futuro */
     );
     -webkit-background-clip: text;
@@ -116,7 +147,7 @@ nav {
 .hero-slogan {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
-    color: white;
+    color: var(--secondary-color);
     text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
@@ -126,21 +157,21 @@ nav {
 }
 
 .cta-button {
-    background: white;
-    color: #000;
+    background: var(--secondary-color);
+    color: var(--primary-color);
     border: none;
     padding: 15px 40px;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     border-radius: 30px;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .cta-button:hover {
-    background: #f0f0f0;
+    background: var(--accent-color);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
@@ -161,15 +192,15 @@ nav {
 }
 
 .mission, .vision {
-    background: white;
+    background: var(--secondary-color);
     padding: 3rem;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border-left: 5px solid #000;
+    border-left: 5px solid var(--primary-color);
 }
 
 .mission h2, .vision h2 {
-    color: #000;
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
     font-size: 2rem;
 }
@@ -177,13 +208,13 @@ nav {
 .mission p, .vision p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #555;
+    color: var(--text-light);
 }
 
 /* Footer */
 footer {
-    background-color: #000;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
     padding: 3rem 0;
 }
@@ -199,11 +230,11 @@ footer {
 }
 
 .social-links a {
-    color: white;
+    color: var(--secondary-color);
     margin: 0 1rem;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: color 0.3s ease;
+    transition: var(--transition);
 }
 
 .social-links a:hover {
@@ -216,8 +247,8 @@ footer {
 
 /* Estilos para páginas internas */
 .page-hero {
-    background: linear-gradient(135deg, #000 0%, #333 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #333 100%);
+    color: var(--secondary-color);
     text-align: center;
     padding: 120px 2rem 80px;
     margin-top: 70px;
@@ -243,17 +274,17 @@ footer {
 }
 
 .text-content h2 {
-    color: #000;
+    color: var(--primary-color);
     margin: 2.5rem 0 1rem 0;
     font-size: 2rem;
-    border-bottom: 3px solid #000;
+    border-bottom: 3px solid var(--primary-color);
     padding-bottom: 0.5rem;
 }
 
 .text-content p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #555;
+    color: var(--text-light);
     margin-bottom: 1.5rem;
 }
 
@@ -267,7 +298,7 @@ footer {
 
 .contact-info h2,
 .contact-form h2 {
-    color: #000;
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
     font-size: 2rem;
 }
@@ -280,7 +311,7 @@ footer {
 }
 
 .contact-item h3 {
-    color: #000;
+    color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
@@ -292,7 +323,7 @@ footer {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
 }
 
 .form-group input,
@@ -303,12 +334,14 @@ footer {
     border-radius: 4px;
     font-size: 1rem;
     font-family: inherit;
+    transition: var(--transition);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #000;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
 }
 
 /* Estilos para programas */
@@ -320,55 +353,77 @@ footer {
 }
 
 .program-card {
-    background: white;
+    background: var(--secondary-color);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border-left: 5px solid #000;
-    transition: transform 0.3s ease;
+    border-left: 5px solid var(--primary-color);
+    transition: var(--transition);
 }
 
 .program-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .program-card h3 {
-    color: #000;
+    color: var(--primary-color);
     margin-bottom: 1rem;
     font-size: 1.4rem;
 }
 
 .program-card p {
-    color: #555;
+    color: var(--text-light);
     line-height: 1.6;
 }
 
-/* Responsive - MEJORADO */
+/* ========================================= */
+/* RESPONSIVE DESIGN - CON MENÚ HAMBURGUESA */
+/* ========================================= */
+
 @media (max-width: 768px) {
-    /* Header mejorado para móviles */
+    /* Header con menú hamburguesa */
     header {
         padding: 0.5rem 0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
     }
     
     nav {
-        flex-direction: column;
-        gap: 0.5rem;
         padding: 0 1rem;
     }
     
     .logo-img {
-        height: 40px; /* Logo más pequeño en móviles */
+        height: 40px;
     }
     
+    /* Mostrar ícono de hamburguesa */
+    .menu-icon {
+        display: block;
+        z-index: 1001;
+    }
+    
+    /* Ocultar menú por defecto en móviles */
     .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
         flex-direction: column;
         text-align: center;
-        gap: 0.3rem;
-        width: 100%;
+        gap: 0;
+        padding: 1rem 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+    
+    /* Mostrar menú cuando el checkbox está activado */
+    #menu-toggle:checked ~ .nav-menu {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
     }
     
     .nav-menu li {
@@ -377,19 +432,24 @@ footer {
     
     .nav-menu a {
         display: block;
-        padding: 0.8rem;
-        background: rgba(255,255,255,0.1);
-        border-radius: 4px;
+        padding: 1rem;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     
-    /* Ajustar el margen superior del contenido para no quedar detrás del header */
+    .nav-menu a:hover {
+        background-color: rgba(255,255,255,0.1);
+        color: var(--secondary-color);
+    }
+    
+    /* Ajustar el margen superior del contenido */
     .hero {
-        margin-top: 120px; /* Más espacio para el header en móviles */
+        margin-top: 70px;
         padding: 60px 1rem 40px;
     }
     
     .page-hero {
-        margin-top: 120px;
+        margin-top: 70px;
         padding: 60px 1rem 40px;
     }
     
@@ -439,12 +499,12 @@ footer {
 /* Para pantallas muy pequeñas (menos de 480px) */
 @media (max-width: 480px) {
     .hero {
-        margin-top: 130px;
+        margin-top: 70px;
         padding: 40px 1rem 30px;
     }
     
     .page-hero {
-        margin-top: 130px;
+        margin-top: 70px;
         padding: 40px 1rem 30px;
     }
     
@@ -458,5 +518,9 @@ footer {
     
     .hero-content h1 {
         font-size: 1.8rem;
+    }
+    
+    .mission, .vision {
+        padding: 1rem;
     }
 }
