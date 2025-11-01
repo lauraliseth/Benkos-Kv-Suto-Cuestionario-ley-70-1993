@@ -1,0 +1,14 @@
+title: "Asociación Afrocolombiana Benkos Ku Suto"
+description: "Defendemos los derechos de las comunidades afrocolombianas en Cartagena y Bolívar"
+baseurl: ""
+url: "https://lauraliseth.github.io"
+theme: jekyll-theme-cayman
+permalink: pretty
+
+# Configuración para GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Información de la organización
+organization_name: "Asociación Afrocolombiana Benkos Ku Suto"
