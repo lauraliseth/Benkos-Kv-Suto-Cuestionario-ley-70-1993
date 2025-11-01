@@ -22,7 +22,7 @@ body {
     background-color: var(--secondary-color);
 }
 
-/* Header y Navegación - CON MENÚ HAMBURGUESA */
+/* Header y Navegación - CON MENÚ HAMBURGUESA CORREGIDO */
 header {
     background-color: var(--primary-color);
     color: var(--secondary-color);
@@ -61,18 +61,20 @@ nav {
     color: var(--secondary-color);
 }
 
-/* Estilos del menú hamburguesa */
+/* ESTILOS CORREGIDOS DEL MENÚ HAMBURGUESA */
 #menu-toggle {
-    display: none;
+    display: none; /* Ocultamos el checkbox */
 }
 
 .menu-icon {
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--secondary-color);
-    display: none;
+    display: none; /* Oculto por defecto en desktop */
     padding: 0.5rem;
     transition: var(--transition);
+    z-index: 1001;
+    user-select: none;
 }
 
 .menu-icon:hover {
@@ -378,7 +380,7 @@ footer {
 }
 
 /* ========================================= */
-/* RESPONSIVE DESIGN - CON MENÚ HAMBURGUESA */
+/* RESPONSIVE DESIGN - MENÚ HAMBURGUESA CORREGIDO */
 /* ========================================= */
 
 @media (max-width: 768px) {
@@ -389,6 +391,7 @@ footer {
     
     nav {
         padding: 0 1rem;
+        flex-wrap: wrap;
     }
     
     .logo-img {
@@ -398,13 +401,14 @@ footer {
     /* Mostrar ícono de hamburguesa */
     .menu-icon {
         display: block;
-        z-index: 1001;
+        order: 2; /* Para posicionarlo a la derecha */
     }
     
-    /* Ocultar menú por defecto en móviles */
+    /* CORRECCIÓN: Ocultar menú por defecto en móviles */
     .nav-menu {
-        position: fixed;
-        top: 70px;
+        display: none; /* Oculto por defecto */
+        position: absolute;
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--primary-color);
@@ -413,17 +417,12 @@ footer {
         gap: 0;
         padding: 1rem 0;
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: var(--transition);
+        z-index: 1000;
     }
     
-    /* Mostrar menú cuando el checkbox está activado */
+    /* CORRECCIÓN: Mostrar menú cuando el checkbox está activado */
     #menu-toggle:checked ~ .nav-menu {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
+        display: flex;
     }
     
     .nav-menu li {
