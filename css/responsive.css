@@ -1,27 +1,40 @@
-/* 👇 ESTO va en css/responsive.css */
+/* css/responsive.css - MEJORAS responsive adicionales */
 
-/* Para tablets */
+/* Tablets - Mejoras adicionales a tus media queries */
 @media (max-width: 768px) {
+    /* Mejora el espaciado en móviles */
     .hero {
-        padding: 2rem 1rem;
+        padding: 80px 1rem 40px !important;
     }
     
-    h1 {
-        font-size: 2rem;
+    /* Asegura que las animaciones funcionen en móviles */
+    .fade-in {
+        transform: translateY(20px);
+    }
+    
+    /* Mejora los botones en móviles */
+    .btn-modern {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
     }
 }
 
-/* Para móviles */
+/* Móviles pequeños - Complementa tus estilos */
 @media (max-width: 480px) {
-    .hero {
-        padding: 1rem;
+    /* Ajustes finos para mejor experiencia táctil */
+    .nav-menu a {
+        padding: 1.2rem 1rem;
     }
     
-    h1 {
-        font-size: 1.5rem;
+    /* Mejora la legibilidad en móviles */
+    .mission, .vision {
+        padding: 1.5rem 1rem;
+        margin: 0 0.5rem;
     }
     
-    .btn-modern {
-        width: 100%;
+    /* Optimiza animaciones para performance en móviles */
+    .fade-in {
+        transition: all 0.8s ease-out;
     }
 }
