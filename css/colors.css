@@ -1,0 +1,70 @@
+/* ARCHIVO DE COLORES PARA BENKOS KU SUTO */
+
+:root {
+    /* PALETA AFROCOLOMBIANA - MODIFICA ESTOS COLORES */
+    --color-primary: #8B4513;    /* Marrón tierra */
+    --color-secondary: #D4AF37;  /* Dorado */
+    --color-accent: #2F4F4F;     /* Gris oscuro elegante */
+    --color-text: #2C2C2C;       /* Texto principal */
+    --color-background: #FAF0E6; /* Fondo beige claro */
+    --color-white: #FFFFFF;
+}
+
+/* APLICAR COLORES */
+body {
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+/* HEADER Y NAVEGACIÓN */
+header {
+    background-color: var(--color-primary);
+}
+
+nav a {
+    color: var(--color-white) !important;
+}
+
+nav a:hover {
+    color: var(--color-secondary) !important;
+}
+
+/* HERO SECTION */
+.hero {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.hero h1, .hero h2, .hero p {
+    color: var(--color-white);
+}
+
+.hero button {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    border: 2px solid var(--color-secondary);
+}
+
+.hero button:hover {
+    background-color: transparent;
+    color: var(--color-secondary);
+}
+
+/* MISIÓN Y VISIÓN */
+.mission-vision {
+    background-color: var(--color-white);
+}
+
+.mission, .vision {
+    border-left: 4px solid var(--color-accent);
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.social-links a {
+    color: var(--color-secondary);
+}
