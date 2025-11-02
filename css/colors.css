@@ -3,10 +3,10 @@
 :root {
     /* PALETA AFROCOLOMBIANA - MODIFICA ESTOS COLORES */
     --color-primary: #1F1D1C;    /* NEGRO */
-    --color-secondary: #D4AF37;  /* Dorado */
+    --color-secondary: #FF0000;  /* Dorado */
     --color-accent: #2F4F4F;     /* Gris oscuro elegante */
     --color-text: #2C2C2C;       /* Texto principal */
-    --color-background: #FAF0E6; /* Fondo beige claro */
+    --color-background: #OO8000; /* Fondo beige claro */
     --color-white: #FFFFFF;
 }
 
