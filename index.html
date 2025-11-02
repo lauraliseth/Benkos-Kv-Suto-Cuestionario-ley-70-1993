@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benkos Ku Suto - Asociación Afrocolombiana</title>
+    
+    <!-- 👇 ARCHIVOS CSS ACTUALIZADOS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">     <!-- ✅ NUEVO -->
+    <link rel="stylesheet" href="css/responsive.css">     <!-- ✅ NUEVO -->
 </head>
 <body>
     <header>
@@ -29,14 +33,18 @@
     </header>
 
     <main>
-        <section class="hero">
+        <!-- ✅ AGREGADO: clase "fade-in" para animación -->
+        <section class="hero fade-in">
             <h1>Benkos Ku Suto</h1>
             <h2>¡El pueblo no se rinde carajo!</h2>
             <p>Defendemos los derechos humanos de las comunidades afrocolombianas en Cartagena y Bolívar</p>
-            <button onclick="location.href='about.html'">Conócenos</button>
+            
+            <!-- ✅ AGREGADO: clase "btn-modern" para botón animado -->
+            <button class="btn-modern" onclick="location.href='about.html'">Conócenos</button>
         </section>
 
-        <section class="mission-vision">
+        <!-- ✅ AGREGADO: clase "fade-in" para animación -->
+        <section class="mission-vision fade-in">
             <div class="mission">
                 <h2>Misión</h2>
                 <p>Fortalecer la identidad y el autorreconocimiento étnico para combatir el racismo y la discriminación.</p>
@@ -55,5 +63,8 @@
         </div>
         <p>&copy; 2024 Asociación Afrocolombiana Benkos Ku Suto</p>
     </footer>
+
+    <!-- ✅ AGREGADO: Archivo JavaScript para animaciones -->
+    <script src="js/animations.js"></script>
 </body>
-</html>             
+</html>
