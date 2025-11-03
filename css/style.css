@@ -124,7 +124,7 @@ nav {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    background: linear-gradient(135deg, var(--gold-color) 0%, var(--accent-color) 100%);
     color: var(--text-white);
     text-align: center;
     padding: 120px 2rem 80px;
@@ -154,7 +154,7 @@ nav {
 
 /* Estilos para el nombre principal con gradiente panafricano */
 .org-main-name {
-    font-size: 3.8rem;
+    font-size: 5.8rem;
     font-weight: bold;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, 
@@ -188,8 +188,8 @@ nav {
 
 /* Botones */
 .cta-button, .btn-modern {
-    background: var(--gold-color);
-    color: #DEAF37;
+    background: #1F1D1C;
+    color: #006400;
     border: none;
     padding: 15px 40px;
     font-size: 1.2rem;
