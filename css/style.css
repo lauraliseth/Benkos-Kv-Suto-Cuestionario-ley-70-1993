@@ -328,50 +328,33 @@ footer {
     color: var(--text-light);
     margin-bottom: 1.5rem;
 }
-/* ===== PÁGINA NOSOTROS ===== */
-.about-page .content-grid {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about-page .text-content {
-    text-align: center;
-}
-
-.about-page .text-content h2 {
-    color: var(--accent-color);
-    text-align: center;
-    border-bottom: 3px solid var(--accent-color);
-    display: inline-block;
-    padding-bottom: 0.5rem;
-    margin: 2.5rem auto 1rem auto;
-    font-size: 2rem;
-}
-
-.about-page .text-content p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    text-align: justify;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Si quieres mantener el texto completamente centrado en About: */
-.about-page .text-content p {
-    text-align: center;
-    text-align-last: center;
-}
 
 /* Contacto */
-.contact-grid {
+/* ===== CONTACTO - CENTRADO ===== */
+.contact-page .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    margin-top: 2rem;
+    margin: 2rem auto; /* Centrado horizontal */
+    max-width: 1000px; /* Ancho máximo */
+    justify-content: center;
+}
+
+.contact-page .contact-info,
+.contact-page .contact-form {
+    text-align: center;
+}
+
+.contact-page .contact-item {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--background-light);
+    border-radius: 8px;
+}
+
+.contact-page .form-group {
+    text-align: left; /* Los labels e inputs mejor alineados a la izquierda */
 }
 
 .contact-info h2,
@@ -423,11 +406,14 @@ footer {
 }
 
 /* Programas */
+.programs-page .content-grid{
+    max-width: 1200px;
+}
 .programs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-top: 3rem;
 }
 
 .program-card {
@@ -437,11 +423,13 @@ footer {
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     border-left: 5px solid var(--accent-color);
     transition: var(--transition);
+    text-align: center;
+    margin: 0 0.5rem;
 }
 
 .program-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 .program-card h3 {
@@ -453,6 +441,43 @@ footer {
 .program-card p {
     color: var(--text-light);
     line-height: 1.6;
+}
+/* ===== PÁGINA NOSOTROS ===== */
+.about-page .content-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-page .text-content {
+    text-align: center;
+}
+
+.about-page .text-content h2 {
+    color: var(--accent-color);
+    text-align: center;
+    border-bottom: 3px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin: 2.5rem auto 1rem auto;
+    font-size: 2rem;
+}
+
+.about-page .text-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Si quieres mantener el texto completamente centrado en About: */
+.about-page .text-content p {
+    text-align: center;
+    text-align-last: center;
 }
 
 /* ===== ANIMACIONES ===== */
