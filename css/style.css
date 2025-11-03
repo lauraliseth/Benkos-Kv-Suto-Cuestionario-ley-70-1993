@@ -132,7 +132,7 @@ nav {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 6rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
@@ -154,7 +154,7 @@ nav {
 
 /* Estilos para el nombre principal con gradiente panafricano */
 .org-main-name {
-    font-size: 2.8rem;
+    font-size: 3.8rem;
     font-weight: bold;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, 
@@ -189,7 +189,7 @@ nav {
 /* Botones */
 .cta-button, .btn-modern {
     background: var(--gold-color);
-    color: or: #DEAF37;
+    color: #DEAF37;
     border: none;
     padding: 15px 40px;
     font-size: 1.2rem;
