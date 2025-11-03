@@ -1,4 +1,6 @@
-/* Reset y estilos base optimizados */
+/* style.css - ARCHIVO CSS CONSOLIDADO COMPLETO */
+
+/* ===== RESET Y ESTILOS BASE ===== */
 * {
     margin: 0;
     padding: 0;
@@ -6,11 +8,23 @@
 }
 
 :root {
-    --primary-color: #000;
-    --secondary-color: #fff;
-    --accent-color: #f0f0f0;
-    --text-color: #333;
+    /* PALETA DE COLORES AFROCOLOMBIANA */
+    --primary-color: #1F1D1C;    /* Negro principal */
+    --secondary-color: #FFFFFF;  /* Blanco */
+    --accent-color: #8B0000;     /* Rojo oscuro - simboliza la lucha */
+    --gold-color: #D4AF37;       /* Dorado - riqueza cultural */
+    --green-color: #006400;      /* Verde - tierra y naturaleza */
+    
+    /* COLORES DE TEXTO */
+    --text-color: #2C2C2C;
     --text-light: #555;
+    --text-white: #FFFFFF;
+    
+    /* COLORES DE FONDO */
+    --background-light: #F8F9FA;
+    --background-white: #FFFFFF;
+    
+    /* EFECTOS */
     --shadow: 0 2px 10px rgba(0,0,0,0.3);
     --transition: all 0.3s ease;
 }
@@ -19,13 +33,13 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--secondary-color);
+    background-color: var(--background-white);
 }
 
-/* Header y Navegación - CON MENÚ HAMBURGUESA CORREGIDO */
+/* ===== HEADER Y NAVEGACIÓN ===== */
 header {
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: var(--text-white);
     padding: 1rem 0;
     position: fixed;
     width: 100%;
@@ -53,6 +67,11 @@ nav {
 .logo-img {
     height: 50px;
     width: auto;
+    transition: var(--transition);
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 .org-name {
@@ -61,16 +80,16 @@ nav {
     color: var(--secondary-color);
 }
 
-/* ESTILOS CORREGIDOS DEL MENÚ HAMBURGUESA */
+/* ESTILOS DEL MENÚ HAMBURGUESA */
 #menu-toggle {
-    display: none; /* Ocultamos el checkbox */
+    display: none;
 }
 
 .menu-icon {
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--secondary-color);
-    display: none; /* Oculto por defecto en desktop */
+    display: none;
     padding: 0.5rem;
     transition: var(--transition);
     z-index: 1001;
@@ -103,22 +122,28 @@ nav {
     background-color: var(--secondary-color);
 }
 
-/* Hero Section */
+/* ===== HERO SECTION ===== */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #333 100%);
-    color: var(--secondary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: var(--text-white);
     text-align: center;
     padding: 120px 2rem 80px;
     margin-top: 70px;
 }
 
-.hero-content h1 {
+.hero h1 {
     font-size: 3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-.hero-subtitle {
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.hero p {
     font-size: 1.3rem;
     margin-bottom: 2.5rem;
     max-width: 800px;
@@ -134,10 +159,9 @@ nav {
     margin-bottom: 1rem;
     background: linear-gradient(135deg, 
         #000000 0%,    /* Negro - representando el pueblo */
-        #E31B23 25%,   /* Rojo - representando la sangre y la lucha */
-        #00853F 50%,   /* Verde - representando la tierra y la naturaleza */
-        #000000 75%,   /* Negro nuevamente */
-        #FCD116 100%   /* Amarillo - representando la riqueza y el futuro */
+        #8B0000 33%,   /* Rojo - representando la sangre y la lucha */
+        #006400 66%,   /* Verde - representando la tierra y la naturaleza */
+        #D4AF37 100%   /* Amarillo - representando la riqueza y el futuro */
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -153,13 +177,18 @@ nav {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
-/* Ajustar el hero para el nuevo contenido */
-.hero-content h1.org-main-name {
-    margin-bottom: 0.5rem;
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
 }
 
-.cta-button {
-    background: var(--secondary-color);
+/* Botones */
+.cta-button, .btn-modern {
+    background: var(--gold-color);
     color: var(--primary-color);
     border: none;
     padding: 15px 40px;
@@ -170,18 +199,22 @@ nav {
     transition: var(--transition);
     text-transform: uppercase;
     letter-spacing: 1px;
+    display: inline-block;
+    margin-top: 2rem;
 }
 
-.cta-button:hover {
-    background: var(--accent-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+.cta-button:hover, .btn-modern:hover {
+    background: transparent;
+    color: var(--gold-color);
+    border: 2px solid var(--gold-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Misión y Visión */
+/* ===== MISIÓN Y VISIÓN ===== */
 .mission-vision {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: var(--background-light);
 }
 
 .container {
@@ -194,15 +227,21 @@ nav {
 }
 
 .mission, .vision {
-    background: var(--secondary-color);
+    background: var(--background-white);
     padding: 3rem;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border-left: 5px solid var(--primary-color);
+    border-left: 5px solid var(--accent-color);
+    transition: var(--transition);
+}
+
+.mission:hover, .vision:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .mission h2, .vision h2 {
-    color: var(--primary-color);
+    color: var(--accent-color);
     margin-bottom: 1.5rem;
     font-size: 2rem;
 }
@@ -213,7 +252,7 @@ nav {
     color: var(--text-light);
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 footer {
     background-color: var(--primary-color);
     color: var(--secondary-color);
@@ -232,7 +271,7 @@ footer {
 }
 
 .social-links a {
-    color: var(--secondary-color);
+    color: var(--gold-color);
     margin: 0 1rem;
     text-decoration: none;
     font-size: 1.1rem;
@@ -240,16 +279,12 @@ footer {
 }
 
 .social-links a:hover {
-    color: #ccc;
+    color: var(--accent-color);
 }
 
-/* ========================================= */
-/* ESTILOS NUEVOS PARA PÁGINAS INTERNAS */
-/* ========================================= */
-
-/* Estilos para páginas internas */
+/* ===== PÁGINAS INTERNAS ===== */
 .page-hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #333 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     color: var(--secondary-color);
     text-align: center;
     padding: 120px 2rem 80px;
@@ -290,7 +325,7 @@ footer {
     margin-bottom: 1.5rem;
 }
 
-/* Estilos para contacto */
+/* Contacto */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -308,7 +343,7 @@ footer {
 .contact-item {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: #f8f9fa;
+    background: var(--background-light);
     border-radius: 8px;
 }
 
@@ -346,7 +381,7 @@ footer {
     box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
 }
 
-/* Estilos para programas */
+/* Programas */
 .programs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -355,11 +390,11 @@ footer {
 }
 
 .program-card {
-    background: var(--secondary-color);
+    background: var(--background-white);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border-left: 5px solid var(--primary-color);
+    border-left: 5px solid var(--accent-color);
     transition: var(--transition);
 }
 
@@ -379,12 +414,56 @@ footer {
     line-height: 1.6;
 }
 
-/* ========================================= */
-/* RESPONSIVE DESIGN - MENÚ HAMBURGUESA CORREGIDO */
-/* ========================================= */
+/* ===== ANIMACIONES ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
 
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efecto de onda para botones */
+.btn-modern {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-modern::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn-modern:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-    /* Header con menú hamburguesa */
+    /* Header */
     header {
         padding: 0.5rem 0;
     }
@@ -398,15 +477,13 @@ footer {
         height: 40px;
     }
     
-    /* Mostrar ícono de hamburguesa */
     .menu-icon {
         display: block;
-        order: 2; /* Para posicionarlo a la derecha */
+        order: 2;
     }
     
-    /* CORRECCIÓN: Ocultar menú por defecto en móviles */
     .nav-menu {
-        display: none; /* Oculto por defecto */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -420,7 +497,6 @@ footer {
         z-index: 1000;
     }
     
-    /* CORRECCIÓN: Mostrar menú cuando el checkbox está activado */
     #menu-toggle:checked ~ .nav-menu {
         display: flex;
     }
@@ -441,7 +517,7 @@ footer {
         color: var(--secondary-color);
     }
     
-    /* Ajustar el margen superior del contenido */
+    /* Hero */
     .hero {
         margin-top: 70px;
         padding: 60px 1rem 40px;
@@ -452,7 +528,6 @@ footer {
         padding: 60px 1rem 40px;
     }
     
-    /* Ajustar tamaños de texto para móviles */
     .org-main-name {
         font-size: 1.8rem;
         line-height: 1.2;
@@ -467,9 +542,11 @@ footer {
         font-size: 1rem;
     }
     
-    .cta-button {
+    .cta-button, .btn-modern {
         padding: 12px 30px;
         font-size: 1rem;
+        width: 90%;
+        max-width: 300px;
     }
     
     .container {
@@ -493,9 +570,19 @@ footer {
     .page-hero-content h1 {
         font-size: 2rem;
     }
+    
+    /* Mejora el espaciado en móviles */
+    .hero {
+        padding: 80px 1rem 40px !important;
+    }
+    
+    /* Asegura que las animaciones funcionen en móviles */
+    .fade-in {
+        transform: translateY(20px);
+    }
 }
 
-/* Para pantallas muy pequeñas (menos de 480px) */
+/* Móviles pequeños */
 @media (max-width: 480px) {
     .hero {
         margin-top: 70px;
@@ -515,11 +602,22 @@ footer {
         font-size: 1.3rem;
     }
     
-    .hero-content h1 {
+    .hero h1 {
         font-size: 1.8rem;
     }
     
     .mission, .vision {
         padding: 1rem;
+        margin: 0 0.5rem;
+    }
+    
+    /* Ajustes finos para mejor experiencia táctil */
+    .nav-menu a {
+        padding: 1.2rem 1rem;
+    }
+    
+    /* Optimiza animaciones para performance en móviles */
+    .fade-in {
+        transition: all 0.8s ease-out;
     }
 }
