@@ -483,6 +483,49 @@ nav {
     margin-right: auto;
     width: 100%;
 }
+/* ===== PÁGINA NOVEDADES ===== */
+.news-page .page-content .container {
+    max-width: 1000px;
+    text-align: center;
+}
+
+.Pinterest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+}
+
+.Pinterest-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+.Pinterest-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Responsive para la imagen en móviles */
+@media (max-width: 768px) {
+    .Pinterest {
+        margin: 1rem auto;
+        padding: 0 1rem;
+    }
+    
+    .Pinterest-img {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .Pinterest-img {
+        max-width: 100%;
+    }
+}
 
 /* ===== FOOTER ===== */
 footer {
