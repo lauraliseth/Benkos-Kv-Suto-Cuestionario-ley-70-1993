@@ -1,5 +1,3 @@
-/* style.css - ARCHIVO CSS CONSOLIDADO COMPLETO */
-
 /* ===== RESET Y ESTILOS BASE ===== */
 * {
     margin: 0;
@@ -9,22 +7,16 @@
 
 :root {
     /* PALETA DE COLORES AFROCOLOMBIANA */
-    --primary-color: #1F1D1C;    /* Negro principal */
-    --secondary-color: #FFFFFF;  /* Blanco */
-    --accent-color: #8B0000;     /* Rojo oscuro - simboliza la lucha */
-    --gold-color: #D4AF37;       /* Dorado - riqueza cultural */
-    --green-color: #006400;      /* Verde - tierra y naturaleza */
-    
-    /* COLORES DE TEXTO */
+    --primary-color: #1F1D1C;
+    --secondary-color: #FFFFFF;
+    --accent-color: #8B0000;
+    --gold-color: #D4AF37;
+    --green-color: #006400;
     --text-color: #2C2C2C;
     --text-light: #555;
     --text-white: #FFFFFF;
-    
-    /* COLORES DE FONDO */
     --background-light: #F8F9FA;
     --background-white: #FFFFFF;
-    
-    /* EFECTOS */
     --shadow: 0 2px 10px rgba(0,0,0,0.3);
     --transition: all 0.3s ease;
 }
@@ -58,32 +50,13 @@ nav {
     position: relative;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
 .logo-img {
     height: 50px;
     width: auto;
-    transition: var(--transition);
 }
 
-.logo-img:hover {
-    transform: scale(1.05);
-}
-
-.org-name {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--secondary-color);
-}
-
-/* ESTILOS DEL MENÚ HAMBURGUESA */
-#menu-toggle {
-    display: none;
-}
+/* MENÚ HAMBURGUESA */
+#menu-toggle { display: none; }
 
 .menu-icon {
     font-size: 1.8rem;
@@ -91,30 +64,21 @@ nav {
     color: var(--secondary-color);
     display: none;
     padding: 0.5rem;
-    transition: var(--transition);
-    z-index: 1001;
-    user-select: none;
-}
-
-.menu-icon:hover {
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 4px;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
-    transition: var(--transition);
 }
 
 .nav-menu a {
     color: var(--secondary-color);
     text-decoration: none;
     font-weight: 600;
-    transition: var(--transition);
     padding: 0.5rem 1rem;
     border-radius: 4px;
+    transition: var(--transition);
 }
 
 .nav-menu a:hover {
@@ -132,73 +96,46 @@ nav {
 }
 
 .hero h1 {
-    font-size: 6rem;
+    font-size: 4rem; /* REDUCIDO de 6rem para mejor responsive */
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero h2 {
-    font-size: 2.2rem;
+    font-size: 2rem; /* REDUCIDO de 2.2rem */
     margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
 .hero p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 2.5rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    opacity: 0.9;
 }
 
-/* Estilos para el nombre principal con gradiente panafricano */
+/* GRADIENTE PANAFRICANO - TAMAÑOS CORREGIDOS */
 .org-main-name {
-    font-size: 5.8rem;
+    font-size: 3.5rem; /* REDUCIDO de 5.8rem */
     font-weight: bold;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, 
-        #000000 0%,    /* Negro - representando el pueblo */
-        #8B0000 33%,   /* Rojo - representando la sangre y la lucha */
-        #006400 66%,   /* Verde - representando la tierra y la naturaleza */
-        #D4AF37 100%   /* Amarillo - representando la riqueza y el futuro */
-    );
+    background: linear-gradient(135deg, #000000 0%, #8B0000 33%, #006400 66%, #D4AF37 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
-.hero-slogan {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-    color: var(--secondary-color);
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-}
-
-.hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 2.5rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.9;
-}
-
-/* Botones */
+/* BOTONES */
 .cta-button, .btn-modern {
-    background: #1F1D1C;
-    color: #006400;
+    background: var(--primary-color);
+    color: var(--gold-color);
     border: none;
     padding: 15px 40px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    cursor: pointer;
     border-radius: 30px;
     transition: var(--transition);
     text-transform: uppercase;
-    letter-spacing: 1px;
     display: inline-block;
     margin-top: 2rem;
 }
@@ -208,85 +145,35 @@ nav {
     color: var(--gold-color);
     border: 2px solid var(--gold-color);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* ===== MISIÓN Y VISIÓN ===== */
+/* ===== MISIÓN Y VISIÓN - CORREGIDO ===== */
 .mission-vision {
-    padding: 80px 0;
+    padding: 80px 2rem; /* AGREGADO padding lateral */
     background: var(--background-light);
     display: flex;
     justify-content: center;
-    gap:2rem;
+    gap: 2rem;
 }
 
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2rem; /* REDUCIDO de 3rem */
 }
 
 .mission, .vision {
     background: var(--background-white);
-    padding: 2.5rem;
+    padding: 2rem; /* REDUCIDO de 2.5rem */
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     border-left: 5px solid var(--accent-color);
-    transition: var(--transition);
-    margin:0 1rem;
+    margin: 0; /* ELIMINADO margen lateral conflictivo */
 }
 
-.mission:hover, .vision:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-.mission h2, .vision h2 {
-    color: var(--accent-color);
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-}
-
-.mission p, .vision p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-light);
-}
-
-/* ===== FOOTER ===== */
-footer {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    text-align: center;
-    padding: 3rem 0;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.social-links {
-    margin-bottom: 1.5rem;
-}
-
-.social-links a {
-    color: var(--gold-color);
-    margin: 0 1rem;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: var(--transition);
-}
-
-.social-links a:hover {
-    color: var(--accent-color);
-}
-
-/* ===== PÁGINAS INTERNAS ===== */
+/* ===== PÁGINAS INTERNAS - CENTRADO CORREGIDO ===== */
 .page-hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     color: var(--secondary-color);
@@ -295,125 +182,70 @@ footer {
     margin-top: 70px;
 }
 
-.page-hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.page-hero-content p {
-    font-size: 1.3rem;
-    opacity: 0.9;
-}
-
 .page-content {
-    padding: 80px 0;
+    padding: 80px 2rem; /* AGREGADO padding lateral */
+    text-align: center; /* CENTRADO GENERAL */
 }
 
+/* CONTENIDO CENTRADO PARA TODAS LAS PÁGINAS */
 .content-grid {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    text-align: center;
+}
+
+.text-content {
+    text-align: center;
 }
 
 .text-content h2 {
-    color: var(--primary-color);
-    margin: 2.5rem 0 1rem 0;
-    font-size: 2rem;
-    border-bottom: 3px solid var(--primary-color);
+    color: var(--accent-color);
+    text-align: center;
+    border-bottom: 3px solid var(--accent-color);
+    display: inline-block;
     padding-bottom: 0.5rem;
+    margin: 2.5rem auto 1rem auto;
 }
 
 .text-content p {
+    text-align: center;
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-light);
     margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Contacto */
-/* ===== CONTACTO - CENTRADO ===== */
-.contact-page .contact-grid {
+/* ===== CONTACTO - CENTRADO CORREGIDO ===== */
+.contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    margin: 2rem auto; /* Centrado horizontal */
-    max-width: 1000px; /* Ancho máximo */
-    justify-content: center;
+    margin: 2rem auto;
+    max-width: 1000px;
 }
 
-.contact-page .contact-info,
-.contact-page .contact-form {
+.contact-info, .contact-form {
     text-align: center;
-}
-
-.contact-page .contact-item {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: var(--background-light);
-    border-radius: 8px;
-}
-
-.contact-page .form-group {
-    text-align: left; /* Los labels e inputs mejor alineados a la izquierda */
-}
-
-.contact-info h2,
-.contact-form h2 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
 }
 
 .contact-item {
+    text-align: center;
     margin-bottom: 2rem;
     padding: 1.5rem;
     background: var(--background-light);
     border-radius: 8px;
 }
 
-.contact-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: var(--text-color);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
-}
-
-/* Programas */
-.programs-page .content-grid{
-    max-width: 1200px;
-}
+/* ===== PROGRAMAS - 2 EN 2 CORREGIDO ===== */
 .programs-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    margin-top: 3rem;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
 }
 
 .program-card {
@@ -422,131 +254,22 @@ footer {
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     border-left: 5px solid var(--accent-color);
-    transition: var(--transition);
     text-align: center;
-    margin: 0 0.5rem;
+    margin: 0; /* ELIMINADO margen conflictivo */
 }
 
-.program-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-
-.program-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-}
-
-.program-card p {
-    color: var(--text-light);
-    line-height: 1.6;
-}
-/* ===== PÁGINA NOSOTROS ===== */
-.about-page .content-grid {
-    max-width: 900px;
-    margin: 0 auto;
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
+    padding: 3rem 2rem;
 }
 
-.about-page .text-content {
-    text-align: center;
-}
-
-.about-page .text-content h2 {
-    color: var(--accent-color);
-    text-align: center;
-    border-bottom: 3px solid var(--accent-color);
-    display: inline-block;
-    padding-bottom: 0.5rem;
-    margin: 2.5rem auto 1rem auto;
-    font-size: 2rem;
-}
-
-.about-page .text-content p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    text-align: justify;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Si quieres mantener el texto completamente centrado en About: */
-.about-page .text-content p {
-    text-align: center;
-    text-align-last: center;
-}
-
-/* ===== ANIMACIONES ===== */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Efecto de onda para botones */
-.btn-modern {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-modern::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    border-radius: 100%;
-    transform: scale(1, 1) translate(-50%);
-    transform-origin: 50% 50%;
-}
-
-.btn-modern:hover::after {
-    animation: ripple 1s ease-out;
-}
-
-@keyframes ripple {
-    0% {
-        transform: scale(0, 0);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(20, 20);
-        opacity: 0;
-    }
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
+/* ===== RESPONSIVE DESIGN - TODO INTEGRADO ===== */
 @media (max-width: 768px) {
-    /* Header */
-    header {
-        padding: 0.5rem 0;
-    }
-    
-    nav {
-        padding: 0 1rem;
-        flex-wrap: wrap;
-    }
-    
-    .logo-img {
-        height: 40px;
-    }
-    
-    .menu-icon {
-        display: block;
-        order: 2;
-    }
+    /* HEADER MOBILE */
+    .menu-icon { display: block; }
     
     .nav-menu {
         display: none;
@@ -559,131 +282,82 @@ footer {
         text-align: center;
         gap: 0;
         padding: 1rem 0;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        z-index: 1000;
     }
     
-    #menu-toggle:checked ~ .nav-menu {
-        display: flex;
-    }
+    #menu-toggle:checked ~ .nav-menu { display: flex; }
     
-    .nav-menu li {
-        width: 100%;
-    }
-    
-    .nav-menu a {
-        display: block;
-        padding: 1rem;
-        border-radius: 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .nav-menu a:hover {
-        background-color: rgba(255,255,255,0.1);
-        color: var(--secondary-color);
-    }
-    
-    /* Hero */
+    /* HERO MOBILE - TAMAÑOS CORREGIDOS */
     .hero {
-        margin-top: 70px;
-        padding: 60px 1rem 40px;
+        padding: 100px 1rem 50px !important;
+        margin-top: 60px;
     }
     
-    .page-hero {
-        margin-top: 70px;
-        padding: 60px 1rem 40px;
-    }
+    .hero h1 { font-size: 2.5rem !important; }
     
-    .org-main-name {
-        font-size: 6rem;
-        line-height: 1.2;
-    }
+    .org-main-name { font-size: 2.2rem !important; }
     
-    .hero-slogan {
-        font-size: 1.5rem;
-        line-height: 1.3;
-    }
+    .hero h2 { font-size: 1.5rem !important; }
     
-    .hero-subtitle {
-        font-size: 1rem;
-    }
+    .hero p { font-size: 1rem !important; }
     
-    .cta-button, .btn-modern {
-        padding: 12px 30px;
-        font-size: 1rem;
-        width: 90%;
-        max-width: 300px;
+    /* MISIÓN/VISIÓN MOBILE */
+    .mission-vision {
+        padding: 60px 1rem;
+        flex-direction: column;
+        gap: 1.5rem;
     }
     
     .container {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 0 1rem;
+        gap: 1.5rem;
+        padding: 0;
     }
     
     .mission, .vision {
         padding: 1.5rem;
+        margin: 0 !important;
     }
     
+    /* PÁGINAS INTERNAS MOBILE */
+    .page-hero {
+        padding: 100px 1rem 50px;
+        margin-top: 60px;
+    }
+    
+    .page-content {
+        padding: 60px 1rem;
+    }
+    
+    /* CONTACTO MOBILE */
     .contact-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 100%;
     }
     
+    /* PROGRAMAS MOBILE */
     .programs-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 100%;
     }
     
-    .page-hero-content h1 {
-        font-size: 2rem;
+    .program-card {
+        padding: 1.5rem;
+        margin: 0 !important;
     }
     
-    /* Mejora el espaciado en móviles */
-    .hero {
-        padding: 80px 1rem 40px !important;
-    }
-    
-    /* Asegura que las animaciones funcionen en móviles */
-    .fade-in {
-        transform: translateY(20px);
+    /* BOTONES MOBILE */
+    .btn-modern, .cta-button {
+        width: 100%;
+        max-width: 300px;
+        padding: 12px 30px;
+        font-size: 1rem;
     }
 }
 
-/* Móviles pequeños */
 @media (max-width: 480px) {
-    .hero {
-        margin-top: 70px;
-        padding: 40px 1rem 30px;
-    }
-    
-    .page-hero {
-        margin-top: 70px;
-        padding: 40px 1rem 30px;
-    }
-    
-    .org-main-name {
-        font-size: 4rem;
-    }
-    
-    .hero-slogan {
-        font-size: 1.3rem;
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    
-    .mission, .vision {
-        padding: 1rem;
-        margin: 0 0.5rem;
-    }
-    
-    /* Ajustes finos para mejor experiencia táctil */
-    .nav-menu a {
-        padding: 1.2rem 1rem;
-    }
-    
-    /* Optimiza animaciones para performance en móviles */
-    .fade-in {
-        transition: all 0.8s ease-out;
-    }
+    .hero h1 { font-size: 2rem !important; }
+    .org-main-name { font-size: 1.8rem !important; }
+    .mission, .vision { padding: 1.2rem; }
 }
