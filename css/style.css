@@ -215,10 +215,13 @@ nav {
 .mission-vision {
     padding: 80px 0;
     background: var(--background-light);
+    display: flex;
+    justify-content: center;
+    gap:2rem;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
@@ -228,11 +231,12 @@ nav {
 
 .mission, .vision {
     background: var(--background-white);
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     border-left: 5px solid var(--accent-color);
     transition: var(--transition);
+    margin:0 1rem;
 }
 
 .mission:hover, .vision:hover {
