@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Benkos Ku Suto</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="gallery-page">
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo-benkos-ku-suto.png" alt="Logo Benkos Ku Suto" class="logo-img">
+            </div>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="about.html">NOSOTROS</a></li>
+                <li><a href="programs.html">PROGRAMAS</a></li>
+                <li><a href="gallery.html">GALERÍA</a></li>
+                <li><a href="news.html">NOVEDADES</a></li>
+                <li><a href="contact.html">CONTACTO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1>Galería</h1>
+                <p>Momentos y actividades de nuestra comunidad</p>
+            </div>
+        </section>
+
+        <section class="page-content">
+            <div class="container">
+                <!-- Carrusel -->
+                <div class="gallery-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slide">
+                            <img src="images/gallery/photo1.jpg" alt="Actividad comunitaria 1" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/photo2.jpg" alt="Actividad comunitaria 2" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/photo3.jpg" alt="Actividad comunitaria 3" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/photo4.jpg" alt="Actividad comunitaria 4" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/gallery/photo5.jpg" alt="Actividad comunitaria 5" class="carousel-img">
+                        </div>
+                    </div>
+                    
+                    <!-- Botones de navegación -->
+                    <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+                    
+                    <!-- Indicadores -->
+                    <div class="carousel-indicators">
+                        <span class="indicator active" onclick="currentSlide(1)"></span>
+                        <span class="indicator" onclick="currentSlide(2)"></span>
+                        <span class="indicator" onclick="currentSlide(3)"></span>
+                        <span class="indicator" onclick="currentSlide(4)"></span>
+                        <span class="indicator" onclick="currentSlide(5)"></span>
+                    </div>
+                </div>
+
+                <!-- Grid de miniaturas -->
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="currentSlide(1)">
+                        <img src="images/gallery/photo1.jpg" alt="Miniatura 1">
+                    </div>
+                    <div class="gallery-item" onclick="currentSlide(2)">
+                        <img src="images/gallery/photo2.jpg" alt="Miniatura 2">
+                    </div>
+                    <div class="gallery-item" onclick="currentSlide(3)">
+                        <img src="images/gallery/photo3.jpg" alt="Miniatura 3">
+                    </div>
+                    <div class="gallery-item" onclick="currentSlide(4)">
+                        <img src="images/gallery/photo4.jpg" alt="Miniatura 4">
+                    </div>
+                    <div class="gallery-item" onclick="currentSlide(5)">
+                        <img src="images/gallery/photo5.jpg" alt="Miniatura 5">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://facebook.com/benkoskusutopcn" target="_blank">Facebook</a>
+                <a href="https://instagram.com/benkoskusuto" target="_blank">Instagram</a>
+            </div>
+            <p>&copy; 2024 Asociación Afrocolombiana Benkos Ku Suto - Cartagena, Bolívar</p>
+        </div>
+    </footer>
+
+    <script src="js/gallery.js"></script>
+</body>
+</html>
